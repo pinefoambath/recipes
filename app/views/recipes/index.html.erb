@@ -1,0 +1,19 @@
+<div class="flex flex-col">
+  <div>
+    <h1 class="font-bold text-4xl">Rezept Liste 🍔</h1>
+    <p>Andrea's Rezeptesammlung</p>
+  </div>
+
+  <div class="flex flex-col mt-4 mb-4">
+  <%= @recipes.each do |recipe|  %>
+    <div class="">
+      <h2 class="text-red-500 text-2xl mt-4"><%= recipe.name %></h2>
+      <%= link_to "Rezept Ansehen", recipe_path(recipe)  %>
+      <p><%= recipe.ingredients %></p>
+      <p><%= recipe.steps %></p>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+_

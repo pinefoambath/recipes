@@ -1,0 +1,14 @@
+<div>
+  <h1 >Rezept und Anleitung</h1>
+  <div class="font-bold text-4xl">
+    <%= @recipe.name  %>
+  </div>
+  <div class="font-bold text-2xl mt-6"> Zutaten:</div>
+  <%= @recipe.ingredients %>
+  <div class="font-bold text-2xl mt-6">  Anleitung:</div>
+  <%= @recipe.steps  %>
+  <div class="flex mt-6 p-2 rounded-md w-28 bg-gray-200 hover:bg-blue-400">
+  <div class="mr-2">⬅️</div>
+  <%= link_to "Zurück", root_path %>
+  </div>
+</div>
