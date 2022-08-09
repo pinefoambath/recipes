@@ -1,8 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    recipes = HTTP.get('https://raw.githubusercontent.com/raywenderlich/recipes/master/Recipes.json').to_s
-    @all_recipes = JSON.parse(recipes)
-    create_recipes(@all_recipes)
+    call_api
     @recipes = Recipe.all
   end
 
@@ -11,6 +9,12 @@ class RecipesController < ApplicationController
   end
 
   private
+
+  def call_api
+    recipes = HTTP.get('https://raw.githubusercontent.com/raywenderlich/recipes/master/Recipes.json').to_s
+    @all_recipes = JSON.parse(recipes)
+    create_recipes(@all_recipes)
+  end
 
   def create_recipes(recipes_hash)
     recipes_hash.each do |recipe|
